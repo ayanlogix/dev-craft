@@ -1,13 +1,13 @@
 <div align="center">
 
 # ✨ DevCraft Suite ✨
-### An Ultra-Premium, Offline-First Developer Utility Dashboard
+### An Ultra-Premium, Sleek Matte Developer Utility Dashboard
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-purple?logo=google-chrome&style=for-the-badge)](https://ayanlogix.github.io/dev-craft/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/ayanlogix/dev-craft/pulls)
 
-**DevCraft Suite** is a beautifully designed, high-performance single-page web application featuring essential local tools for developers. Built with high-fidelity glassmorphism aesthetics, fluid micro-animations, and customizable HSL themes.
+**DevCraft Suite** is a beautifully designed, high-performance single-page web application featuring essential local tools for developers. Built with a sleek matte Vercel-style aesthetic, fluid micro-animations, and customizable HSL themes.
 
 [**Explore the Code**](file:///C:/Users/Ayan...!!!/.gemini/antigravity/scratch/dev-utility-suite) • [**Report Bug**](https://github.com/ayanlogix/dev-craft/issues) • [**Request Feature**](https://github.com/ayanlogix/dev-craft/issues)
 
@@ -45,6 +45,12 @@
    - WCAG 2.1 Contrast Ratio checks for text combinations (AA / AAA compliance tests).
    - One-click copy for custom CSS custom properties and Tailwind configurations.
 
+6. **Base64 Encoder/Decoder & Image Converter**
+   - Encode standard strings into Base64 or decode Base64 back into plain text in real-time.
+   - Drag-and-drop local file processing to instantly convert them into Base64 payloads (supports PNG, JPG, SVG, WebP, etc.).
+   - Generates ready-to-copy HTML `<img>` tags, CSS background URL values, Data URLs, and Raw Base64 strings.
+   - Inlined interactive thumbnail previews for images and file metadata displays.
+
 ---
 
 ## 🔒 Security & Privacy First
@@ -79,7 +85,8 @@ dev-utility-suite/
     ├── jwt-tool.js     # JWT decoding logic and date handlers
     ├── regex-tool.js   # Regex engines and highlight rendering
     ├── glass-tool.js   # CSS glassmorphism code generator
-    └── color-tool.js   # HSL rotations and WCAG compliance tests
+    ├── color-tool.js   # HSL rotations and WCAG compliance tests
+    └── base64-tool.js  # Base64 encoder/decoder and file processor
 ```
 
 ---

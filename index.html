@@ -15,12 +15,8 @@
     <link rel="stylesheet" href="styles/tools.css">
 </head>
 <body class="dark-theme">
-    <!-- Animated Glassmorphism Background Blobs -->
-    <div class="bg-blobs">
-        <div class="blob blob-primary"></div>
-        <div class="blob blob-secondary"></div>
-        <div class="blob blob-tertiary"></div>
-    </div>
+    <!-- Subtle Background Glow -->
+    <div class="bg-blobs"></div>
 
     <!-- App Container -->
     <div class="app-layout">
@@ -124,6 +120,16 @@
                         </svg>
                     </div>
                     <span class="nav-label">Color Palette</span>
+                </button>
+
+                <button class="nav-item" data-target="base64-converter">
+                    <div class="nav-icon">
+                        <!-- Data/Encoding exchange icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 7h12M8 12h12M8 17h12M4 7h.01M4 12h.01M4 17h.01" />
+                        </svg>
+                    </div>
+                    <span class="nav-label">Base64 Converter</span>
                 </button>
             </nav>
 
@@ -541,6 +547,84 @@ Our backup email is ayan.dev@gmail.com. Have a great day!"></textarea>
                                     💡 <strong>Contrast Requirements:</strong> WCAG 2.1 AA requires a contrast ratio of at least <strong>4.5:1</strong> for normal text, and <strong>3:1</strong> for large text. AAA requires <strong>7:1</strong> for normal text and <strong>4.5:1</strong> for large text.
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool: Base64 Converter -->
+            <section id="base64-converter" class="tool-section">
+                <header class="tool-header">
+                    <h2>Base64 Encoder/Decoder & Image Converter</h2>
+                    <p>Encode or decode text to Base64, or drag-and-drop local images to instantly convert them to Base64 Data URLs.</p>
+                </header>
+
+                <div class="tool-container grid-two-columns">
+                    <!-- Input Section -->
+                    <div class="editor-pane glass-panel">
+                        <div class="pane-header">
+                            <div class="base64-mode-tabs">
+                                <button class="mode-tab-btn active" id="base64-tab-text">Text Converter</button>
+                                <button class="mode-tab-btn" id="base64-tab-file">File to Base64</button>
+                            </div>
+                            <div class="pane-actions" id="base64-text-actions">
+                                <button class="action-btn active" id="base64-action-encode">Encode</button>
+                                <button class="action-btn" id="base64-action-decode">Decode</button>
+                            </div>
+                        </div>
+                        
+                        <div class="pane-body">
+                            <!-- Text Mode Panel -->
+                            <div id="base64-text-panel" class="base64-subpanel">
+                                <textarea id="base64-input-text" placeholder="Enter text here to encode or Base64 string to decode..." spellcheck="false"></textarea>
+                            </div>
+
+                            <!-- File Mode Panel (Hidden initially) -->
+                            <div id="base64-file-panel" class="base64-subpanel hidden">
+                                <div class="drag-dropzone" id="base64-dropzone">
+                                    <div class="dropzone-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                                        </svg>
+                                    </div>
+                                    <span class="dropzone-text">Drag & drop files here or click to browse</span>
+                                    <span class="dropzone-subtext">Supports PNG, JPG, SVG, GIF, WebP, TXT (Max 5MB)</span>
+                                    <input type="file" id="base64-file-input" class="hidden" accept="image/*,text/plain">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div class="editor-pane glass-panel">
+                        <div class="pane-header">
+                            <span class="pane-title">Conversion Output</span>
+                            <div class="pane-actions">
+                                <button class="action-btn" id="base64-clear-btn">Clear</button>
+                            </div>
+                        </div>
+                        <div class="pane-body">
+                            <!-- File preview info (if image uploaded) -->
+                            <div id="base64-file-info" class="base64-file-info-box hidden">
+                                <div class="file-preview-thumbnail" id="base64-preview-thumb"></div>
+                                <div class="file-metadata">
+                                    <span class="file-name-label" id="base64-file-name">filename.png</span>
+                                    <span class="file-size-label" id="base64-file-size">0 KB</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Outputs container -->
+                            <textarea id="base64-output-text" placeholder="Resulting output will be displayed here..." readonly spellcheck="false"></textarea>
+                            
+                            <!-- Base64 specific copy templates (Hidden initially for files) -->
+                            <div class="base64-copy-actions hidden" id="base64-copy-actions-container">
+                                <button class="action-btn primary" id="base64-copy-raw">Copy Raw Base64</button>
+                                <button class="action-btn" id="base64-copy-dataurl">Copy Data URL</button>
+                                <button class="action-btn" id="base64-copy-imgtag">Copy Image Tag</button>
+                                <button class="action-btn" id="base64-copy-css">Copy CSS URL</button>
+                            </div>
+                            
+                            <button class="action-btn primary" id="base64-copy-btn-simple">Copy Output</button>
                         </div>
                     </div>
                 </div>

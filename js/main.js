@@ -8,6 +8,7 @@ import { initJwtTool } from './jwt-tool.js';
 import { initRegexTool } from './regex-tool.js';
 import { initGlassTool } from './glass-tool.js';
 import { initColorTool } from './color-tool.js';
+import { initBase64Tool } from './base64-tool.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Navigation Router
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initRegexTool();
         initGlassTool();
         initColorTool();
+        initBase64Tool();
         console.log('✨ All DevCraft utility modules initialized successfully.');
     } catch (error) {
         console.error('❌ Error initializing DevCraft utility modules:', error);
