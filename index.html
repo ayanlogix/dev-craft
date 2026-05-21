@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevCraft Suite - Premium Developer Utilities</title>
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Main Style Sheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tools.css">
+</head>
+<body class="dark-theme">
+    <!-- Animated Glassmorphism Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-primary"></div>
+        <div class="blob blob-secondary"></div>
+        <div class="blob blob-tertiary"></div>
+    </div>
+
+    <!-- App Container -->
+    <div class="app-layout">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                        <polyline points="2 17 12 22 22 17" />
+                        <polyline points="2 12 12 17 22 12" />
+                    </svg>
+                </div>
+                <div class="brand-info">
+                    <h1>DevCraft</h1>
+                    <span>Utility Suite</span>
+                </div>
+                
+                <!-- Theme Switcher Button (Header Positioned for Mobile Access) -->
+                <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Mode">
+                    <span class="toggle-icon sun-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </svg>
+                    </span>
+                    <span class="toggle-icon moon-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-target="json-formatter">
+                    <div class="nav-icon">
+                        <!-- Code / JSON icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <span class="nav-label">JSON Formatter</span>
+                </button>
+
+                <button class="nav-item" data-target="jwt-decoder">
+                    <div class="nav-icon">
+                        <!-- Shield / Key icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                    </div>
+                    <span class="nav-label">JWT Decoder</span>
+                </button>
+
+                <button class="nav-item" data-target="regex-tester">
+                    <div class="nav-icon">
+                        <!-- Regex / Text Search icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            <line x1="8" y1="11" x2="14" y2="11" />
+                            <line x1="11" y1="8" x2="11" y2="14" />
+                        </svg>
+                    </div>
+                    <span class="nav-label">Regex Tester</span>
+                </button>
+
+                <button class="nav-item" data-target="glassmorphism-generator">
+                    <div class="nav-icon">
+                        <!-- Layers / Glass icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                            <polygon points="12 17 2 12 12 7 22 12 12 17" />
+                            <polygon points="12 22 2 17 12 12 22 17 12 22" />
+                        </svg>
+                    </div>
+                    <span class="nav-label">CSS Glassmorphism</span>
+                </button>
+
+                <button class="nav-item" data-target="color-designer">
+                    <div class="nav-icon">
+                        <!-- Palette icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.03448 19.1759 5.09936 19.4344 5.0232 19.6644C4.85526 20.1717 4.71764 20.7027 4.61763 21.2502C4.54288 21.6599 4.84652 22 5.26252 22H12Z" />
+                            <circle cx="7.5" cy="10.5" r="1.5" />
+                            <circle cx="11.5" cy="7.5" r="1.5" />
+                            <circle cx="16.5" cy="9.5" r="1.5" />
+                            <circle cx="15.5" cy="14.5" r="1.5" />
+                        </svg>
+                    </div>
+                    <span class="nav-label">Color Palette</span>
+                </button>
+            </nav>
+
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <div class="app-version">v1.0.0 (Offline Mode)</div>
+            </div>
+
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Tool: JSON Formatter -->
+            <section id="json-formatter" class="tool-section active">
+                <header class="tool-header">
+                    <h2>JSON Formatter & Validator</h2>
+                    <p>Clean, formatting, and structural validation of JSON strings locally with syntax highlighting.</p>
+                </header>
+
+                <div class="tool-container grid-two-columns">
+                    <!-- Input Section -->
+                    <div class="editor-pane glass-panel">
+                        <div class="pane-header">
+                            <span class="pane-title">Raw JSON Input</span>
+                            <div class="pane-actions">
+                                <button class="action-btn" id="json-paste-btn">Paste</button>
+                                <button class="action-btn" id="json-clear-btn">Clear</button>
+                            </div>
+                        </div>
+                        <div class="pane-body">
+                            <textarea id="json-input" placeholder='Paste your raw JSON string here...
+Example:
+{
+  "name": "DevCraft Suite",
+  "features": ["json", "jwt", "regex", "glassmorphism", "colors"],
+  "active": true,
+  "stats": { "stars": 1200, "status": "premium" }
+}' spellcheck="false"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div class="editor-pane glass-panel">
+                        <div class="pane-header">
+                            <span class="pane-title">Formatted Output</span>
+                            <div class="pane-actions">
+                                <button class="action-btn" id="json-minify-btn">Minify</button>
+                                <button class="action-btn" id="json-beautify-btn">Format (2 Spaces)</button>
+                                <button class="action-btn primary" id="json-copy-btn">Copy Output</button>
+                            </div>
+                        </div>
+                        <div class="pane-body">
+                            <!-- Syntax highlighted output container -->
+                            <div class="code-output-wrapper">
+                                <pre id="json-output-display" class="code-output"><code class="json-code"></code></pre>
+                            </div>
+                            <!-- Error status overlay -->
+                            <div id="json-error-banner" class="error-banner hidden">
+                                <div class="error-icon">⚠️</div>
+                                <div class="error-info">
+                                    <span class="error-title">Invalid JSON Format</span>
+                                    <span class="error-message" id="json-error-text">Unexpected token in JSON</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool: JWT Decoder -->
+            <section id="jwt-decoder" class="tool-section">
+                <header class="tool-header">
+                    <h2>JSON Web Token Decoder</h2>
+                    <p>Decode your JWTs locally in real-time. We never send your sensitive tokens to any server.</p>
+                </header>
+
+                <div class="tool-container grid-two-columns">
+                    <!-- JWT Input Area -->
+                    <div class="editor-pane glass-panel">
+                        <div class="pane-header">
+                            <span class="pane-title">Token Input</span>
+                            <div class="pane-actions">
+                                <button class="action-btn" id="jwt-paste-btn">Paste</button>
+                                <button class="action-btn" id="jwt-clear-btn">Clear</button>
+                            </div>
+                        </div>
+                        <div class="pane-body">
+                            <textarea id="jwt-input" class="jwt-textarea" placeholder="Paste your encoded JWT (encoded.header.payload.signature) here..." spellcheck="false"></textarea>
+                            
+                            <!-- JWT Validity Indicator -->
+                            <div class="jwt-info-panel" id="jwt-info-container">
+                                <div class="info-row">
+                                    <span class="info-label">Detected Algorithm:</span>
+                                    <span class="info-val font-code" id="jwt-algo-badge">-</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Token Expiration:</span>
+                                    <span class="info-val" id="jwt-expiry-badge">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JWT Decoded Area -->
+                    <div class="jwt-decoded-panes">
+                        <!-- Decoded Header -->
+                        <div class="editor-pane glass-panel jwt-pane-header">
+                            <div class="pane-header header-colored">
+                                <span class="pane-title">Header <span class="badge badge-header">Algorithm & Type</span></span>
+                                <button class="action-btn copy-mini" id="jwt-copy-header" title="Copy Header">Copy</button>
+                            </div>
+                            <div class="pane-body pane-mini-body">
+                                <pre class="code-output"><code id="jwt-header-code" class="json-code"></code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Decoded Payload -->
+                        <div class="editor-pane glass-panel jwt-pane-payload">
+                            <div class="pane-header payload-colored">
+                                <span class="pane-title">Payload <span class="badge badge-payload">Data & Claims</span></span>
+                                <button class="action-btn copy-mini" id="jwt-copy-payload" title="Copy Payload">Copy</button>
+                            </div>
+                            <div class="pane-body pane-mini-body">
+                                <pre class="code-output"><code id="jwt-payload-code" class="json-code"></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool: Regex Tester -->
+            <section id="regex-tester" class="tool-section">
+                <header class="tool-header">
+                    <h2>Regular Expression Tester</h2>
+                    <p>Test matching rules, capture groups, and replacement patterns on target text in real-time.</p>
+                </header>
+
+                <div class="tool-container regex-dashboard">
+                    <!-- Config Options & Inputs -->
+                    <div class="regex-inputs glass-panel">
+                        <div class="pane-header">
+                            <span class="pane-title">Regular Expression Configuration</span>
+                            <div class="regex-presets">
+                                <select id="regex-preset-select">
+                                    <option value="" disabled selected>Load Regex Preset...</option>
+                                    <option value="email">Email Validator</option>
+                                    <option value="url">URL (HTTP/HTTPS)</option>
+                                    <option value="phone">Phone Number (International)</option>
+                                    <option value="date">Date (YYYY-MM-DD)</option>
+                                    <option value="number">Numeric (Integers/Floats)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="regex-setup-row">
+                            <!-- Expression Input -->
+                            <div class="field-container regex-field">
+                                <label for="regex-expression">Expression</label>
+                                <div class="regex-slash-wrapper">
+                                    <span class="regex-slash">/</span>
+                                    <input type="text" id="regex-expression" placeholder="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                                    <span class="regex-slash">/</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Flags Selector -->
+                            <div class="field-container flags-field">
+                                <label>Flags</label>
+                                <div class="flags-checkboxes">
+                                    <label class="checkbox-pill" title="Global match">
+                                        <input type="checkbox" id="regex-flag-g" checked> g
+                                    </label>
+                                    <label class="checkbox-pill" title="Case insensitive">
+                                        <input type="checkbox" id="regex-flag-i"> i
+                                    </label>
+                                    <label class="checkbox-pill" title="Multiline matching">
+                                        <input type="checkbox" id="regex-flag-m"> m
+                                    </label>
+                                    <label class="checkbox-pill" title="Dot matches newline">
+                                        <input type="checkbox" id="regex-flag-s"> s
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test Text Area -->
+                        <div class="field-container test-text-field">
+                            <label for="regex-test-text">Test Text</label>
+                            <textarea id="regex-test-text" placeholder="Enter text to match regex against here...
+Example:
+Hello, you can contact us at info@example.com or support-team@ayanlogix.co.in.
+Our backup email is ayan.dev@gmail.com. Have a great day!"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Output & Match Details -->
+                    <div class="regex-results-panel">
+                        <!-- Live Highlighted Text -->
+                        <div class="editor-pane glass-panel regex-matches-view">
+                            <div class="pane-header">
+                                <span class="pane-title">Match Highlighter</span>
+                                <span class="badge" id="regex-match-counter">0 Matches</span>
+                            </div>
+                            <div class="pane-body">
+                                <div class="highlight-container">
+                                    <!-- Overlay div matching textarea style, for rendering colored spans -->
+                                    <div id="regex-highlight-overlay" class="highlight-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Match Table/Groups list -->
+                        <div class="editor-pane glass-panel regex-groups-view">
+                            <div class="pane-header">
+                                <span class="pane-title">Capture Details</span>
+                            </div>
+                            <div class="pane-body overflow-y">
+                                <div id="regex-groups-list" class="groups-list">
+                                    <div class="empty-state">No matches found yet. Try modifying your expression or test text.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool: Glassmorphism Generator -->
+            <section id="glassmorphism-generator" class="tool-section">
+                <header class="tool-header">
+                    <h2>CSS Glassmorphism Generator</h2>
+                    <p>Tweak sliders, select colors, and instantly copy frosted-glass CSS properties for your front-end apps.</p>
+                </header>
+
+                <div class="tool-container glassmorphism-designer">
+                    <!-- Sliders & Controls -->
+                    <div class="glass-controls glass-panel">
+                        <div class="pane-header">
+                            <span class="pane-title">Tweak Settings</span>
+                        </div>
+                        <div class="pane-body controls-body">
+                            <!-- Opacity Slider -->
+                            <div class="control-row">
+                                <div class="control-label-row">
+                                    <label for="glass-opacity">Opacity</label>
+                                    <span class="control-val" id="glass-opacity-val">0.25</span>
+                                </div>
+                                <input type="range" id="glass-opacity" min="0" max="1" step="0.01" value="0.25">
+                            </div>
+
+                            <!-- Blur Slider -->
+                            <div class="control-row">
+                                <div class="control-label-row">
+                                    <label for="glass-blur">Blur Radius</label>
+                                    <span class="control-val" id="glass-blur-val">12px</span>
+                                </div>
+                                <input type="range" id="glass-blur" min="0" max="40" step="1" value="12">
+                            </div>
+
+                            <!-- Color Selector -->
+                            <div class="control-row">
+                                <div class="control-label-row">
+                                    <label for="glass-color">Glass Tint Base Color</label>
+                                    <span class="control-val" id="glass-color-val">#ffffff</span>
+                                </div>
+                                <div class="color-picker-input-wrapper">
+                                    <input type="color" id="glass-color" value="#ffffff">
+                                    <input type="text" id="glass-color-text" class="color-hex-text" value="#ffffff" spellcheck="false">
+                                </div>
+                            </div>
+
+                            <!-- Border Opacity Slider -->
+                            <div class="control-row">
+                                <div class="control-label-row">
+                                    <label for="glass-border-opacity">Border Opacity</label>
+                                    <span class="control-val" id="glass-border-opacity-val">0.15</span>
+                                </div>
+                                <input type="range" id="glass-border-opacity" min="0" max="1" step="0.01" value="0.15">
+                            </div>
+
+                            <!-- Saturation Slider -->
+                            <div class="control-row">
+                                <div class="control-label-row">
+                                    <label for="glass-saturation">Backdrop Saturation</label>
+                                    <span class="control-val" id="glass-saturation-val">100%</span>
+                                </div>
+                                <input type="range" id="glass-saturation" min="50" max="300" step="5" value="100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Preview Panel & Copy Code -->
+                    <div class="glass-preview-panel">
+                        <!-- Live Interactive Card -->
+                        <div class="glass-panel preview-area">
+                            <div class="pane-header">
+                                <span class="pane-title">Realtime Canvas Preview</span>
+                            </div>
+                            <div class="pane-body canvas-body" id="glass-canvas-bg">
+                                <!-- Backdrop shapes moving inside preview area -->
+                                <div class="canvas-sphere canvas-sphere-1"></div>
+                                <div class="canvas-sphere canvas-sphere-2"></div>
+                                <div class="canvas-sphere canvas-sphere-3"></div>
+                                
+                                <!-- Floating Glass Target Card -->
+                                <div class="glass-card-preview" id="glass-preview-card">
+                                    <div class="card-chip"></div>
+                                    <div class="card-details">
+                                        <h3>DevCraft Suite</h3>
+                                        <p>Glassmorphic Card Element</p>
+                                        <div class="card-digits">••••  ••••  ••••  2026</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generated CSS Pane -->
+                        <div class="editor-pane glass-panel generated-code-pane">
+                            <div class="pane-header">
+                                <span class="pane-title">Generated CSS Style Rules</span>
+                                <button class="action-btn primary" id="glass-copy-css">Copy Styles</button>
+                            </div>
+                            <div class="pane-body">
+                                <pre class="code-output"><code id="glass-css-output" class="language-css"></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool: Color Palette Designer -->
+            <section id="color-designer" class="tool-section">
+                <header class="tool-header">
+                    <h2>AI-Driven Color Palette Designer</h2>
+                    <p>Input a base color to generate gorgeous color harmonies. Instantly check WCAG contrast accessibility ratios.</p>
+                </header>
+
+                <div class="tool-container color-designer-dashboard">
+                    <!-- Palette Creator Sidebar (Inputs & Selectors) -->
+                    <div class="color-controls glass-panel">
+                        <div class="pane-header">
+                            <span class="pane-title">Generate Settings</span>
+                        </div>
+                        <div class="pane-body">
+                            <!-- Base Color Selector -->
+                            <div class="field-container color-input-group">
+                                <label for="palette-base-color">Primary Seed Color</label>
+                                <div class="color-picker-input-wrapper">
+                                    <input type="color" id="palette-base-color" value="#6366f1">
+                                    <input type="text" id="palette-base-color-text" class="color-hex-text" value="#6366f1" spellcheck="false">
+                                </div>
+                            </div>
+
+                            <!-- Harmony Type Selector -->
+                            <div class="field-container">
+                                <label for="palette-harmony">Harmony Mode</label>
+                                <select id="palette-harmony">
+                                    <option value="analogous" selected>Analogous (Adjacent)</option>
+                                    <option value="monochromatic">Monochromatic (Shades/Tints)</option>
+                                    <option value="complementary">Complementary (Opposites)</option>
+                                    <option value="triadic">Triadic (120° Spacing)</option>
+                                    <option value="split-complementary">Split Complementary</option>
+                                </select>
+                            </div>
+
+                            <!-- Export buttons -->
+                            <div class="palette-quick-actions">
+                                <button class="action-btn" id="palette-export-css">Export CSS Custom Props</button>
+                                <button class="action-btn" id="palette-export-tailwind">Export Tailwind Palette</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Display: Generated Palette & Accessibility -->
+                    <div class="color-main-area">
+                        <!-- Generated Color Swatches Grid -->
+                        <div class="glass-panel swatches-card">
+                            <div class="pane-header">
+                                <span class="pane-title">Generated Palette Swatches</span>
+                                <span class="pane-tip">Click swatch to copy color code</span>
+                            </div>
+                            <div class="pane-body">
+                                <div class="palette-swatches-grid" id="palette-swatches-container">
+                                    <!-- Swatches injected via Javascript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accessibility / Contrast Checker Card -->
+                        <div class="glass-panel accessibility-card">
+                            <div class="pane-header">
+                                <span class="pane-title">WCAG Contrast Assessment (AA / AAA Compliance)</span>
+                            </div>
+                            <div class="pane-body contrast-checker-body">
+                                <div class="contrast-demo-box-grid">
+                                    <!-- Light text on color preview -->
+                                    <div class="contrast-preview-card" id="contrast-preview-light">
+                                        <span class="preview-text">Sample Light Text</span>
+                                        <div class="badge-status-container">
+                                            <span class="ratio-badge" id="contrast-light-ratio">0.0:1</span>
+                                            <span class="compliance-badge" id="contrast-light-status">FAIL</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Dark text on color preview -->
+                                    <div class="contrast-preview-card" id="contrast-preview-dark">
+                                        <span class="preview-text">Sample Dark Text</span>
+                                        <div class="badge-status-container">
+                                            <span class="ratio-badge" id="contrast-dark-ratio">0.0:1</span>
+                                            <span class="compliance-badge" id="contrast-dark-status">FAIL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wcag-info-text">
+                                    💡 <strong>Contrast Requirements:</strong> WCAG 2.1 AA requires a contrast ratio of at least <strong>4.5:1</strong> for normal text, and <strong>3:1</strong> for large text. AAA requires <strong>7:1</strong> for normal text and <strong>4.5:1</strong> for large text.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- General Copy Toast Notification -->
+    <div id="toast-notification" class="toast hidden">
+        <span class="toast-icon">📋</span>
+        <span class="toast-message">Copied successfully to clipboard!</span>
+    </div>
+
+    <!-- Core App JS Scripts -->
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

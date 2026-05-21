@@ -1,0 +1,815 @@
+/* ==========================================================================
+   DevCraft Suite - Tools Specific Styles (tools.css)
+   ========================================================================== */
+
+/* --- Grid & Layout Utilities --- */
+.grid-two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+@media (max-width: 900px) {
+    .grid-two-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+.editor-pane {
+    height: 100%;
+    min-height: 520px;
+}
+
+@media (max-width: 768px) {
+    .editor-pane {
+        min-height: 380px;
+    }
+}
+
+.pane-mini-body {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* --- 1. JSON Formatter & Validator --- */
+#json-input {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    height: 100%;
+}
+
+.error-banner {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    background: rgba(239, 68, 68, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--error);
+    border-radius: var(--border-radius-md);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.error-icon {
+    font-size: 1.5rem;
+    color: var(--error);
+}
+
+.error-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.error-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--error);
+}
+
+.error-message {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    margin-top: 2px;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- 2. JWT Decoder --- */
+.jwt-textarea {
+    font-family: var(--font-mono) !important;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #ff007f !important; /* Base64 header color default */
+    word-break: break-all;
+    height: 100%;
+    min-height: 250px !important;
+}
+
+.jwt-info-panel {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.info-label {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.info-val {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.font-code {
+    font-family: var(--font-mono);
+}
+
+.jwt-decoded-panes {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100%;
+}
+
+.jwt-decoded-panes .editor-pane {
+    min-height: 220px;
+    height: auto;
+}
+
+.header-colored {
+    border-left: 4px solid #ff007f;
+}
+
+.payload-colored {
+    border-left: 4px solid #00f0ff;
+}
+
+.badge-header {
+    background: rgba(255, 0, 127, 0.15) !important;
+    color: #ff007f !important;
+    border: 1px solid rgba(255, 0, 127, 0.2);
+}
+
+.badge-payload {
+    background: rgba(0, 240, 255, 0.15) !important;
+    color: #00f0ff !important;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+/* --- 3. Regex Tester --- */
+.regex-dashboard {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 30px;
+}
+
+@media (max-width: 950px) {
+    .regex-dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.regex-inputs {
+    min-height: 480px;
+}
+
+.regex-setup-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .regex-setup-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-container label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.regex-slash-wrapper {
+    display: flex;
+    align-items: center;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 0 16px;
+    transition: var(--transition-smooth);
+}
+
+.regex-slash-wrapper:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+}
+
+.regex-slash {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 1.1rem;
+    user-select: none;
+}
+
+#regex-expression {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 12px 8px !important;
+    font-family: var(--font-mono);
+    font-weight: 500;
+}
+
+.flags-checkboxes {
+    display: flex;
+    gap: 6px;
+    height: 100%;
+    align-items: center;
+}
+
+.checkbox-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    user-select: none;
+}
+
+.checkbox-pill:hover {
+    border-color: var(--border-active);
+}
+
+.checkbox-pill input {
+    display: none;
+}
+
+.checkbox-pill:has(input:checked) {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+#regex-test-text {
+    height: 180px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.regex-results-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100%;
+}
+
+.regex-matches-view {
+    height: 250px;
+}
+
+.highlight-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 16px;
+}
+
+.highlight-overlay {
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text-secondary);
+}
+
+/* Matching CSS highlight classes */
+.regex-match-span {
+    background: rgba(99, 102, 241, 0.35);
+    border-bottom: 2px solid var(--primary);
+    color: #fff;
+    border-radius: 2px;
+    padding: 2px 0;
+}
+
+.regex-match-span-alt {
+    background: rgba(124, 58, 237, 0.35);
+    border-bottom: 2px solid var(--secondary);
+    color: #fff;
+    border-radius: 2px;
+    padding: 2px 0;
+}
+
+.regex-groups-view {
+    flex-grow: 1;
+    min-height: 200px;
+}
+
+.groups-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.empty-state {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.match-item-card {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 14px;
+}
+
+.match-header-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    padding-bottom: 4px;
+}
+
+.match-index {
+    background: var(--primary-glow);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.match-text-content {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px 12px;
+    border-radius: var(--border-radius-sm);
+    word-break: break-all;
+}
+
+.capture-groups-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 10px;
+    border-left: 2px dashed var(--border-color);
+}
+
+.group-row {
+    font-size: 0.75rem;
+    display: flex;
+    gap: 8px;
+}
+
+.group-num {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.group-val {
+    font-family: var(--font-mono);
+    color: var(--secondary);
+}
+
+/* --- 4. CSS Glassmorphism Generator --- */
+.glassmorphism-designer {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 30px;
+}
+
+@media (max-width: 950px) {
+    .glassmorphism-designer {
+        grid-template-columns: 1fr;
+    }
+}
+
+.glass-controls {
+    height: 100%;
+}
+
+.controls-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.control-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    color: var(--text-secondary);
+}
+
+.control-val {
+    font-family: var(--font-mono);
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.glass-preview-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.preview-area {
+    height: 340px;
+}
+
+.canvas-body {
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    overflow: hidden;
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+}
+
+/* Background animated shapes in canvas */
+.canvas-sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(10px);
+}
+
+.canvas-sphere-1 {
+    width: 130px;
+    height: 130px;
+    background: linear-gradient(135deg, #ff007f, #7c3aed);
+    top: 20%;
+    left: 20%;
+    animation: moveCircle1 12s infinite alternate ease-in-out;
+}
+
+.canvas-sphere-2 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #00f0ff, #3b82f6);
+    bottom: 15%;
+    right: 15%;
+    animation: moveCircle2 15s infinite alternate ease-in-out;
+}
+
+.canvas-sphere-3 {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #f59e0b, #e11d48);
+    top: 50%;
+    right: 40%;
+    animation: moveCircle3 8s infinite alternate ease-in-out;
+}
+
+@keyframes moveCircle1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 40px) scale(1.1); }
+}
+
+@keyframes moveCircle2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-60px, -30px) scale(0.9); }
+}
+
+@keyframes moveCircle3 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(25px, -50px) scale(1.2); }
+}
+
+/* Preview Target Card */
+.glass-card-preview {
+    width: 320px;
+    max-width: calc(100% - 32px);
+    height: 180px;
+    border-radius: var(--border-radius-lg);
+    padding: 24px;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    /* Injected via js dynamically */
+}
+
+.card-chip {
+    width: 40px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    position: relative;
+}
+
+.card-chip::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    left: 12px;
+    top: 5px;
+}
+
+.card-details h3 {
+    color: #fff;
+    font-size: 1.15rem;
+    font-family: var(--font-heading);
+    letter-spacing: -0.2px;
+    margin-bottom: 2px;
+}
+
+.card-details p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.card-digits {
+    font-family: var(--font-mono);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.generated-code-pane {
+    min-height: 200px !important;
+}
+
+/* --- 5. Color Palette Designer --- */
+.color-designer-dashboard {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 30px;
+}
+
+@media (max-width: 950px) {
+    .color-designer-dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.color-controls {
+    height: 100%;
+}
+
+.color-input-group {
+    margin-bottom: 20px;
+}
+
+.palette-quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.palette-quick-actions button {
+    width: 100%;
+}
+
+.color-main-area {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.swatches-card {
+    min-height: 200px;
+}
+
+.palette-swatches-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    height: 100%;
+    flex-grow: 1;
+}
+
+@media (max-width: 500px) {
+    .palette-swatches-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .swatch-card {
+        flex-direction: row;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .swatch-color {
+        height: 100%;
+        width: 60px;
+    }
+    
+    .swatch-info {
+        padding: 8px 16px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-grow: 1;
+        gap: 10px;
+    }
+    
+    .swatch-hex {
+        font-size: 0.8rem;
+    }
+    
+    .swatch-label {
+        font-size: 0.65rem;
+    }
+}
+
+.swatch-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: var(--transition-bounce);
+    background: var(--bg-input);
+}
+
+.swatch-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--border-active);
+}
+
+.swatch-color {
+    height: 100px;
+    width: 100%;
+    transition: var(--transition-smooth);
+}
+
+.swatch-info {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.swatch-hex {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.swatch-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* Accessibility Card styling */
+.contrast-checker-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contrast-demo-box-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 550px) {
+    .contrast-demo-box-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contrast-preview-card {
+    padding: 24px;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+    border: 1px solid var(--border-color);
+    /* Background set in JS */
+}
+
+.preview-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.badge-status-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.ratio-badge {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.compliance-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 2px 10px;
+    border-radius: 50px;
+    color: #fff;
+}
+
+.compliance-badge.pass-aa {
+    background: #10b981;
+}
+
+.compliance-badge.pass-aaa {
+    background: #059669;
+    box-shadow: 0 0 10px rgba(5, 150, 105, 0.4);
+}
+
+.compliance-badge.fail {
+    background: #ef4444;
+}
+
+.wcag-info-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid var(--border-color);
+    padding: 12px 16px;
+    border-radius: var(--border-radius-md);
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .pane-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .pane-actions {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .pane-actions button {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+}
